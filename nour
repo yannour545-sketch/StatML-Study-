@@ -1,1 +1,144 @@
-.
+18.06 liner Algebra
+Glbent Strang 
+Text: Introduction to linear Algebra
+Lecture 1
+
+Plan for Lecture 1
+
+- n linear equations, n unknowns
+- Row Picture
+- Column Picture
+- Matrix Form
+
+
+
+Example 1: System of 2 Equations, 2 Unknowns
+
+Consider the system:
+
+2x - y = 0
+-x + 2y = 3
+
+
+1. Row Picture (Graphical Interpretation)
+
+Each equation represents a line in the 2D plane.
+- Line 1: `2x - y = 0` → passes through origin with slope 2.
+- Line 2: `-x + 2y = 3` → rewritten as `y = (x+3)/2`.
+
+The solution is the intersection point of these two lines: `(x=1, y=2)`.
+
+(Diagram shows two intersecting lines with the point (1,2) marked.)
+
+---
+
+2. Matrix Form
+
+We can write the system as `A * x = b`:
+
+
+[ 2  -1 ] [x]   [0]
+[ -1  2 ] [y] = [3]
+
+
+Where:
+- `A` is the coefficient matrix.
+- `x` is the vector of unknowns `[x, y]`.
+- `b` is the right-hand side vector `[0, 3].
+
+
+3. Column Picture (Vector Interpretation)
+
+We ask: Can we find scalars `x` and `y` such that a linear combination of the columns of `A` equals `b`?
+
+
+x * [2]  +  y * [-1]  =  [0]
+    [-1]       [2]      [3]
+
+
+This means: `x * (column 1) + y * (column 2) = b`.
+
+- Column 1: Vector `[2, -1]`
+- Column 2: Vector `[-1, 2]`
+- Target Vector `b`: `[0, 3]`
+
+From the solution `(x=1, y=2)`:
+
+1 * [2]  +  2 * [-1]  =  [2 - 2]  =  [0]
+    [-1]       [2]      [-1 + 4]     [3]
+
+
+The linear combination works!
+
+(Diagram shows vectors in 2D space: column 1, column 2, and their combination reaching `b`.)*
+
+
+
+Example 2: System of 3 Equations, 3 Unknowns
+
+Consider the system:
+
+2x - y         = 0
+-x + 2y - z    = -1
+    -3y + 4z   = 4
+```
+
+Matrix Form
+
+
+A = [ 2  -1   0 ]
+    [-1   2  -1 ]
+    [ 0  -3   4 ]
+
+b = [ 0 ]
+    [-1 ]
+    [ 4 ]
+
+x = [x]
+    [y]
+    [z]
+
+
+So, `A * x = b`.
+
+
+
+1. Row Picture (3D Interpretation)
+
+Each equation represents a plane in 3D space.
+- The solution is the point where all three planes intersect.
+- In this case, the intersection point is `(x=0, y=0, z=1)`.
+
+(Diagram shows three intersecting planes in 3D space.)
+
+
+2. Column Picture (3D Vector Interpretation)
+
+We ask: Can we find `x`, `y`, `z` such that:
+
+x * [2]  +  y * [-1]  +  z * [0]  =  [0]
+    [-1]       [2]        [-1]      [-1]
+    [0]        [-3]       [4]       [4]
+
+
+Let’s test the solution `(x=0, y=0, z=1)`:
+
+0 * [2]  +  0 * [-1]  +  1 * [0]  =  [0]
+    [-1]       [2]        [-1]      [-1]
+    [0]        [-3]       [4]       [4]
+
+ It works!
+
+(Diagram shows the three column vectors in 3D space and how their linear combination reaches `b`.)
+
+
+Key Question: Can we solve `Ax = b` for every `b`?
+
+This depends on whether the columns of A span the entire space (in this case, ℝ³).
+
+For our 3x3 matrix `A`:
+Do the linear combinations of the columns fill 3D space?
+
+ Answer: Yes, for this matrix A.
+
+This means that for any vector `b` in ℝ³, there exists a solution `x` such that `Ax = b`. This property is equivalent to saying that the matrix `A` is *invertible* (or non-singular).
